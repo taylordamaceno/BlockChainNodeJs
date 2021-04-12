@@ -1,2 +1,4 @@
-# BlockChainNodeJs
-very simple crypto test using crypto-js
+# blockchainNodejs
+very simple Cryptocurrency block chain using nodejs
+npm install  crypto-js
+
