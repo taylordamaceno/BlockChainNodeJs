@@ -48,21 +48,22 @@ class TaylaoBlockchain {
     this.blockchain.push(newBlock);
   }
 
-  checkChainIntegrity() {
-      this.blockchain.forEach(function(i)  {
-      const currentBlock = this.blockchain[i];
-      const previousBlock = this.blockchain[i - 1];
-    
-      if (currentBlock.hash !== currentBlock.calcHash()) {
-        return false;
-      }
-      if (currentBlock.previousHash !== previousBlock.hash) return false;
-    })
-    return true;
-   }
-} 
+checkChainIntegrity() {
+    for (let i = 1; i < this.blockchain.length; i++) {
+        const currentBlock = this.blockchain[i];
+        const previousBlock = this.blockchain[i - 1];
 
- 
+        if (currentBlock.hash !== currentBlock.calcHash()) {
+            return false;
+        }
+
+        if (currentBlock.previousHash !== previousBlock.hash) {
+            return false;
+        }
+    }
+    return true;
+}
+
 let doingCoin = new TaylaoBlockchain();
 
 console.log("doingCoin exploring in progress....");
