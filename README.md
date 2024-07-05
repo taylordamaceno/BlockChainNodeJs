@@ -29,9 +29,13 @@ npm start
 Running Unit Tests
 npm test
 
+
 Using Docker
 To build and run the application using Docker Compose, ensure you have Docker and Docker Compose installed, then run:
-docker-compose up
+
+   ```bash
+docker-compose up --build
+
 Contributing
 Contributions are welcome! Please fork the repository, make your changes, and submit a pull request.
 
