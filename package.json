@@ -1,0 +1,18 @@
+{
+  "name": "blockchain-application",
+  "version": "1.0.0",
+  "description": "A simple blockchain application to demonstrate the capabilities of Node.js.",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "test": "jest"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "crypto-js": "^4.0.0"
+  },
+  "devDependencies": {
+    "jest": "^27.0.0"
+  }
+}
