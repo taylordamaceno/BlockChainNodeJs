@@ -1,4 +1,4 @@
-const Block = require("./block");
+const Block = require('./block');
 
 class Blockchain {
     constructor() {
@@ -22,14 +22,14 @@ class Blockchain {
 
     isChainValid() {
         for (let i = 1; i < this.chain.length; i++) {
-            const current = this.chain[i];
-            const previous = this.chain[i - 1];
+            const currentBlock = this.chain[i];
+            const previousBlock = this.chain[i - 1];
 
-            if (current.hash !== current.calculateHash()) {
+            if (currentBlock.hash !== currentBlock.calculateHash()) {
                 return false;
             }
 
-            if (current.previousHash !== previous.hash) {
+            if (currentBlock.previousHash !== previousBlock.hash) {
                 return false;
             }
         }
