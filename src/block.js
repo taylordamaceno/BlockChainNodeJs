@@ -1,3 +1,4 @@
+const crypto = require('crypto');
 const SHA256 = require("crypto-js/sha256");
 
 class Block {
@@ -8,6 +9,7 @@ class Block {
         this.previousHash = previousHash;
         this.hash = this.calculateHash();
         this.nonce = 0;
+        this.signature = '';
     }
 
     calculateHash() {
@@ -20,7 +22,18 @@ class Block {
             this.hash = this.calculateHash();
         }
     }
+
+    signBlock(privateKey) {
+        const sign = crypto.createSign('SHA256');
+        sign.update(this.hash).end();
+        this.signature = sign.sign(privateKey, 'hex');
+    }
+
+    isValidSignature(publicKey) {
+        const verify = crypto.createVerify('SHA256');
+        verify.update(this.hash);
+        return verify.verify(publicKey, this.signature, 'hex');
+    }
 }
 
 module.exports = Block;
-
